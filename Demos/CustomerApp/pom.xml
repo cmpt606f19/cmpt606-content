@@ -1,0 +1,181 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>HelidonTest</groupId>
+	<artifactId>SimpleHelidon</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/io.helidon.microprofile.bundles/helidon-microprofile-3.0 -->
+		<dependency>
+			<groupId>io.helidon.microprofile.bundles</groupId>
+			<artifactId>helidon-microprofile-3.0</artifactId>
+			<version>1.3.0</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.eclipse.persistence/org.eclipse.persistence.jpa -->
+		<dependency>
+		    <groupId>org.eclipse.persistence</groupId>
+		    <artifactId>org.eclipse.persistence.jpa</artifactId>
+		    <version>2.7.4</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.derby/derbynet -->
+		<dependency>
+		    <groupId>org.apache.derby</groupId>
+		    <artifactId>derbynet</artifactId>
+		    <version>10.15.1.3</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.derby/derbyclient -->
+		<dependency>
+		    <groupId>org.apache.derby</groupId>
+		    <artifactId>derbyclient</artifactId>
+		    <version>10.15.1.3</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.derby/derbytools -->
+		<dependency>
+		    <groupId>org.apache.derby</groupId>
+		    <artifactId>derbytools</artifactId>
+		    <version>10.15.1.3</version>
+		</dependency>		
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.derby/derbyshared -->
+		<dependency>
+		    <groupId>org.apache.derby</groupId>
+		    <artifactId>derbyshared</artifactId>
+		    <version>10.15.1.3</version>
+		</dependency>
+			
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>2.8.5</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.media/jersey-media-json-jackson -->
+		<dependency>
+		    <groupId>org.glassfish.jersey.media</groupId>
+		    <artifactId>jersey-media-json-jackson</artifactId>
+		    <version>2.29.1</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.media/jersey-media-jaxb -->
+		<dependency>
+		    <groupId>org.glassfish.jersey.media</groupId>
+		    <artifactId>jersey-media-jaxb</artifactId>
+		    <version>2.29.1</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+		<dependency>
+		    <groupId>javax.xml.bind</groupId>
+		    <artifactId>jaxb-api</artifactId>
+		    <version>2.4.0-b180830.0359</version>
+		</dependency>
+		
+		<!-- JPA Support -->
+		<!-- Hikari Connection Pool Extension -->
+		<dependency>
+		    <groupId>io.helidon.integrations.cdi</groupId>
+		    <artifactId>helidon-integrations-cdi-datasource-hikaricp</artifactId>
+		    <version>1.3.0</version>
+		    <scope>runtime</scope>
+		</dependency>
+		
+		<!-- JTA Extension -->
+		<dependency>
+		    <groupId>io.helidon.integrations.cdi</groupId>
+		    <artifactId>helidon-integrations-cdi-jta-weld</artifactId>
+		    <version>1.3.0</version>
+		    <scope>runtime</scope>
+		</dependency>
+
+		<!-- Provider-Independent Helidon JPA Extension -->
+		<dependency>
+		    <groupId>io.helidon.integrations.cdi</groupId>
+		    <artifactId>helidon-integrations-cdi-jpa</artifactId>
+		    <version>1.3.0</version>
+		    <scope>runtime</scope>
+		</dependency>
+
+		<!-- EclipseLink JPA Extension -->
+		<dependency>
+		    <groupId>io.helidon.integrations.cdi</groupId>
+		    <artifactId>helidon-integrations-cdi-eclipselink</artifactId>
+		    <version>1.3.0</version>
+		    <scope>runtime</scope>
+		</dependency>
+
+		<!-- JPA Dependencies -->
+		<dependency>
+		    <groupId>jakarta.persistence</groupId>
+		    <artifactId>jakarta.persistence-api</artifactId>
+		    <version>2.2.2</version>
+		    <scope>provided</scope>
+		</dependency>
+		<dependency>
+		    <groupId>javax.transaction</groupId>
+		    <artifactId>javax.transaction-api</artifactId>
+		    <version>1.2</version>
+		    <scope>provided</scope>
+		</dependency>
+		
+		
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<release>12</release>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+                <groupId>org.jboss.jandex</groupId>
+                <artifactId>jandex-maven-plugin</artifactId>
+            </plugin>
+            
+            <plugin>
+			    <groupId>com.ethlo.persistence.tools</groupId>
+			    <artifactId>eclipselink-maven-plugin</artifactId>
+			    <version>2.7.1.1</version>
+			    <dependencies> 
+			        <dependency>
+			            <groupId>javax.annotation</groupId>
+			            <artifactId>javax.annotation-api</artifactId>
+			            <version>1.3.1</version>
+			        </dependency>
+			        <dependency>
+			            <groupId>javax.xml.bind</groupId>
+			            <artifactId>jaxb-api</artifactId>
+			            <version>2.3.0</version>
+			        </dependency>
+			    </dependencies>
+			    <executions>
+			        <execution>
+			            <id>weave</id>
+			            <phase>process-classes</phase>
+			            <goals>
+			                <goal>weave</goal> 
+			            </goals>
+			        </execution>
+			        <execution>
+			            <id>modelgen</id>
+			            <phase>generate-sources</phase>
+			            <goals>
+			                <goal>modelgen</goal> 
+			            </goals>
+			        </execution>
+			    </executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

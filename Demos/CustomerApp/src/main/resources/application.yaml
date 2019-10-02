@@ -1,0 +1,14 @@
+server:
+    port: 1527
+javax:
+    sql:
+        DataSource:
+            customerDbDataSource:
+                dataSourceClassName: org.apache.derby.ClientDataSource
+                dataSource:
+                    portNumber: 1527
+                    password: APP
+                    user: APP
+                    serverName: localhost
+                    databaseName: customerDB
+                    connectionAttributes: ;create=true
