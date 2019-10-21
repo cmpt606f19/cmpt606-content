@@ -1,24 +1,14 @@
 package repository;
 
 import java.util.List;
-import javax.annotation.PostConstruct;
-
 import entity.Order;
 
 public interface IOrderRepository {
-
-    public abstract Order add(Order order);
-
-    public abstract void update(Order order);
-
-    public abstract void delete(int id);
-
-    public abstract List<Order> getOrders();
-
-    public abstract Order getOrder(int id);
-
-    public abstract int getOrdersCount();
-
-    public abstract List<Order> getOrdersByCustomerId(int customerId);
-
+    Order add(Order order);
+    void update(Order order);
+    void delete(int id);
+    List<Order> getOrders();
+    Order getOrder(int id);
+    int getOrdersCount();
+    List<Order> getOrdersByCustomerId(int customerId);
 }
