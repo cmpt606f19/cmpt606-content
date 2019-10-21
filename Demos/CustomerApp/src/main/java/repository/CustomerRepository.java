@@ -1,20 +1,14 @@
 package repository;
 
 import java.util.List;
-import javax.annotation.PostConstruct;
 
-import javax.annotation.Resource;
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.Dependent;
-import javax.enterprise.context.RequestScoped;
 //import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.sql.DataSource;
-import javax.transaction.Transactional;
 
 import entity.Customer;
 import entity.Order;

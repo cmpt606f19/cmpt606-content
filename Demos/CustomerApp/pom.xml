@@ -49,56 +49,12 @@
 		    <version>2.29.1</version>
 		</dependency>
 		
-		<!-- JPA Support -->
-		<!-- Hikari Connection Pool Extension -->
-		<!-- https://mvnrepository.com/artifact/io.helidon.integrations.cdi/helidon-integrations-cdi-datasource-hikaricp -->
+		<!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
 		<dependency>
-		    <groupId>io.helidon.integrations.cdi</groupId>
-		    <artifactId>helidon-integrations-cdi-datasource-hikaricp</artifactId>
-		    <version>1.3.1</version>
+		    <groupId>javax.xml.bind</groupId>
+		    <artifactId>jaxb-api</artifactId>
+		    <version>2.4.0-b180830.0359</version>
 		</dependency>
-		
-		<!-- JTA Extension -->
-		<!-- https://mvnrepository.com/artifact/io.helidon.integrations.cdi/helidon-integrations-cdi-jta-weld -->
-		<dependency>
-		    <groupId>io.helidon.integrations.cdi</groupId>
-		    <artifactId>helidon-integrations-cdi-jta-weld</artifactId>
-		    <version>1.3.1</version>
-		    <scope>test</scope>
-		</dependency>
-
-		<!-- Provider-Independent Helidon JPA Extension -->
-		<dependency>
-		    <groupId>io.helidon.integrations.cdi</groupId>
-		    <artifactId>helidon-integrations-cdi-jpa</artifactId>
-		    <version>1.3.0</version>
-		    <scope>runtime</scope>
-		</dependency>
-
-		<!-- EclipseLink JPA Extension -->
-		<!-- https://mvnrepository.com/artifact/io.helidon.integrations.cdi/helidon-integrations-cdi-jpa -->
-		<dependency>
-		    <groupId>io.helidon.integrations.cdi</groupId>
-		    <artifactId>helidon-integrations-cdi-jpa</artifactId>
-		    <version>1.3.1</version>
-		</dependency>
-
-
-		<!-- JPA Dependencies -->
-		<!-- https://mvnrepository.com/artifact/jakarta.persistence/jakarta.persistence-api -->
-		<dependency>
-		    <groupId>jakarta.persistence</groupId>
-		    <artifactId>jakarta.persistence-api</artifactId>
-		    <version>2.2.3</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/javax.transaction/javax.transaction-api -->
-		<dependency>
-		    <groupId>javax.transaction</groupId>
-		    <artifactId>javax.transaction-api</artifactId>
-		    <version>1.3</version>
-		</dependency>
-	
 	</dependencies>
 
 	<build>
@@ -112,42 +68,7 @@
 				</configuration>
 			</plugin>
 			
-			<plugin>
-                <groupId>org.jboss.jandex</groupId>
-                <artifactId>jandex-maven-plugin</artifactId>
-            </plugin>
-            
-            <plugin>
-				<!-- https://mvnrepository.com/artifact/com.ethlo.persistence.tools/eclipselink-maven-plugin -->
-			    <groupId>com.ethlo.persistence.tools</groupId>
-			    <artifactId>eclipselink-maven-plugin</artifactId>
-			    <version>2.7.4.1</version>
-			    <dependencies> 
-					<!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
-					<dependency>
-					    <groupId>javax.annotation</groupId>
-					    <artifactId>javax.annotation-api</artifactId>
-					    <version>1.3.2</version>
-					</dependency>
 
-			    </dependencies>
-			    <executions>
-			        <!-- <execution>
-			            <id>weave</id>
-			            <phase>process-classes</phase>
-			            <goals>
-			                <goal>weave</goal> 
-			            </goals>
-			        </execution> -->
-			        <execution>
-			            <id>modelgen</id>
-			            <phase>generate-sources</phase>
-			            <goals>
-			                <goal>modelgen</goal> 
-			            </goals>
-			        </execution>
-			    </executions>
-			</plugin>
 		</plugins>
 	</build>
 </project>

@@ -1,14 +1,10 @@
-server:
-    port: 1527
 javax:
     sql:
         DataSource:
-            customerDbDataSource:
-                dataSourceClassName: org.apache.derby.ClientDataSource
+           AppDataSource:
+                dataSourceClassName: com.microsoft.sqlserver.jdbc.SQLServerDataSource
                 dataSource:
-                    portNumber: 1527
-                    password: APP
-                    user: APP
-                    serverName: localhost
-                    databaseName: customerDB
-                    connectionAttributes: ;create=true
+                    portNumber: 1433
+                    password: Qatar2022
+                    user: appuser
+                    url: jdbc:sqlserver://localhost\SQLEXPRESS;DatabaseName=CustomerDB
