@@ -1,0 +1,5 @@
+- Add "C:\Program Files\MongoDB\Server\4.2\bin" to the Path environment variable.
+- Import restaurants.json
+mongoimport --db restaurantdb --collection restaurants --drop --file D:\cmpt606\cmpt606-content\Demos\MongoDB\restaurants.json
+
+mongoimport --db zipcodesdb --collection zipcodes --drop --file D:\cmpt606\cmpt606-content\Demos\MongoDB\zips.json
