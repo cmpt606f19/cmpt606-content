@@ -43,23 +43,27 @@ public class JongoTour {
         System.out.println("Total # of friends " + friendsCol.count());
 
         System.out.println("\nAll friends in the collection");
-        MongoCursor<Friend> friends = friendsCol.find()
+        MongoCursor<Friend> friends = friendsCol.find("{age : {$gte: 20} }")
         										.sort("{name: 1}")
         										.as(Friend.class);
 		for(var friend : friends) {
 			System.out.println(friend);
 		}
 
-		System.out.println("\nFriends in the collection with the name contains Khaldi (/i for case-insensitive) & age >= 20");
-		String query = "{name: { $regex : # }, age: {$gte: #}}";
+		System.out.println("\nFriends in the collection with the name contains Khaldi ($options: 'i' for case-insensitive) & age >= 20");
+		String query = "{name: { $regex : #, $options: 'i' }, age: {$gte: #}}";
 		friends = friendsCol.find(query, "khaldi", 20).as(Friend.class); 
 		for(var friend : friends) {
 			System.out.println(friend);
 		}
 		
-		System.out.println("\nFirst friend in the collection with the name contains Khaldi (/i for case-insensitive) & age >= 20");
+		System.out.println("\nFirst friend in the collection with the name contains Khaldi ($options: 'i' for case-insensitive) & age >= 20");
 		Friend one = friendsCol.findOne(query, "khaldi", 20).projection("{_id: 0, name: 1, age: 1}").as(Friend.class);
 		System.out.println(one);
+		
+		one = friendsCol.findOne(new ObjectId(ali.getId())).as(Friend.class);
+		System.out.println(one);
+		
 		
         System.out.println("\nFriends living in Doha");
         // now use a query to get 1 document out { address.city:  "Doha" }
@@ -80,6 +84,16 @@ public class JongoTour {
 		for(var result : results) {
 			System.out.println(result);
 		}
+		
+		/*System.out.println("\nAverage age of friends - copy-paste from Mongo Compass");
+		var summaryResults = friendsCol
+				  .aggregate("{ $match: { age: {$gte: 20} } }")
+				  .and("{ $group: { {_id: '$gender', avgAge: { $avg: '$age'} } }}")
+				  .as(SummaryReport.class);
+		
+		for(var result : summaryResults) {
+			System.out.println(result);
+		}*/
 		
 		System.out.println("\nAverage age of friends");
 		var summaryResults = friendsCol
