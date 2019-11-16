@@ -34,7 +34,6 @@ DataGenerator.xlsx
 *.log
 
 # Package Files #
-*.jar
 *.war
 *.nar
 *.ear
