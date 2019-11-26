@@ -61,7 +61,8 @@ public class JongoTour {
 		Friend one = friendsCol.findOne(query, "khaldi", 20).projection("{_id: 0, name: 1, age: 1}").as(Friend.class);
 		System.out.println(one);
 		
-		one = friendsCol.findOne(new ObjectId(ali.getId())).as(Friend.class);
+		System.out.println("\n*** Get Friend address");
+		one = friendsCol.findOne(new ObjectId(ali.getId())).projection("{_id:0, address:1}").as(Friend.class);
 		System.out.println(one);
 		
 		
@@ -83,6 +84,14 @@ public class JongoTour {
 		
 		for(var result : results) {
 			System.out.println(result);
+		}
+		
+		System.out.println("\n*** Get Friend address");
+		var addresses = friendsCol.aggregate("{$match: {_id: #} }", new ObjectId(ali.getId()))
+						.and("{$project: {'street': '$address.street', 'city': '$address.city'} }").as(Address.class);
+		
+		for(var address : addresses) {
+			System.out.println(address);
 		}
 		
 		/*System.out.println("\nAverage age of friends - copy-paste from Mongo Compass");
